@@ -142,15 +142,9 @@ union = pd.Series(np.union1d(out_country, in_country))
 # intersection of the series
 intersect = pd.Series(np.intersect1d(out_country, in_country))
   
-  
+
 # uncommon elements in both the series 
 uc = union[~union.isin(intersect)]
-
-
-
-
-
-
 
 
 # Remove countries that do not exist in all 3 data sets.
@@ -159,17 +153,16 @@ sr = sr.loc[~sr['country'].isin(uc)]
 ur = ur.loc[~ur['Country Name'].isin(uc)]
 
 
-
-
-
-
-
-
 # Manually modified column names as follows
 #sr: Country -> Country, year -> Year, sex -> Sex
 #mh: Entity -> Country
 #ur: Country Name -> Country
 
+
+# Export cleaned files
+sr.to_csv('Suicide Rate.csv')
+mh.to_csv('Mental Health.csv')
+ur.to_csv('Unemployment Rate.csv')
 
 
 

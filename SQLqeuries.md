@@ -3,10 +3,12 @@ These are the SQL queries written in the database to inesrt/update data. The mas
 
 <br>
 ###Insert distinct country names to **country** dimension
+Datas have duplicates of country values becaues there are multiple years and demographic datas associated with each country.
 > **INSERT INTO** country (country) **SELECT DISTINCT** country **FROM** master;
 
 <br>
 ###Insert distinct year values to **date** dimension
+Datas have duplicates of year values because there are ultiple demographic datas associated with each year.
 > **INSERT INTO** date (year) 
 > **SELECT DISTINCT** year 
 > **FROM** master 
@@ -35,7 +37,6 @@ These are the SQL queries written in the database to inesrt/update data. The mas
 
 <br>
 ###Update the fact table to also include foreign key value from primary key of national_statistics dimension
-The *national_statistics* foreign key shows which national_statistics row of data is connected 
 >**UPDATE** suicide_fact_table
 >**SET** national_statistics_key = finaljoin.national_statistics_key
 >**FROM** (
