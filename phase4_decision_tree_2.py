@@ -73,3 +73,5 @@ mean_squared_error(y_test, predictions)
 from sklearn.metrics import r2_score
 
 r2_score(y_test, predictions)
+
+mean_squared_error(y_test, predictions, squared=False)
